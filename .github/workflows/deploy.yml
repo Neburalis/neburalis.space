@@ -1,5 +1,4 @@
-name: Deploy GitHub Profile and Example Repo
-
+name: pages-collect-build-deploy
 on:
   push:
     branches:
