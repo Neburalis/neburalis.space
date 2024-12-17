@@ -1,0 +1,58 @@
+name: Deploy GitHub Profile and Example Repo
+
+on:
+  push:
+    branches:
+      - main
+  repository_dispatch:
+    types: [trigger-deploy] # Событие для запуска из другого репозитория
+  schedule:
+    - cron: '0 0 * * *' # daily
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # step 1: Checkout site repo (neburalis.space)
+      - name: Checkout neburalis.space repo
+        uses: actions/checkout@v4
+        with:
+          path: main
+
+      # step 2: Checkout example repo
+#      - name: Checkout example repo
+#        uses: actions/checkout@v4
+#        with:
+#          repository: username/example
+#          path: example
+
+      # step 3: Download my profile README (neburalis/README.md)
+      - name: Fetch GitHub Profile README
+        run: |
+          curl -s -o main/README.md https://raw.githubusercontent.com/neburalis/neburalis/main/README.md
+
+      # step 4: Convert README.md to HTML
+      - name: Convert README.md to HTML
+        run: |
+          sudo apt-get install -y pandoc
+          pandoc main/README.md -f markdown -t html -o main/readme.html
+
+      # step 5: Insert README into the HTML template in place of the placeholder
+      - name: Insert README into template
+        run: |
+          CONTENT=$(cat main/readme.html)
+          sed "s|<!-- README_CONTENT -->|$CONTENT|" main/template.html > main/index.html
+
+      # step 6: Copy contents of example to /example
+#      - name: Copy example to /example
+#        run: |
+#          mkdir -p main/example
+#          find example -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.ts" -o -name "*.svg" -o -name "*.ico" \) -exec cp --parents {} main/example/ \;
+
+
+      # step 7: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./main
