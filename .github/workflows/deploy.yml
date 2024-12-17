@@ -40,7 +40,7 @@ jobs:
       - name: Insert README into template
         run: |
           CONTENT=$(cat main/readme.html)
-          sed "s|<!-- README_CONTENT -->|$CONTENT|" main/template.html > main/index.html
+          perl -0777 -pe 's|<!-- README_CONTENT -->|'"$CONTENT"'|' main/template.html > main/index.html
 
       # step 6: Copy contents of example to /example
 #      - name: Copy example to /example
