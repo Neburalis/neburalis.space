@@ -11,13 +11,10 @@ __About me__
 
 usually other people here list technologies they are familiar with, but I am familiar with a lot of technologies, but I wouldn't say I am very good at them, so you can look at it in my repositories (and evaluate my skills in this technology) or on the banner below
 
-[![GitHub stats-Dark](https://github-readme-stats.vercel.app/api?username=Neburalis&show_icons=true&theme=dark#gh-dark-mode-only)](https://github.com/Neburalis#gh-dark-mode-only)
-[![GitHub stats-Light](https://github-readme-stats.vercel.app/api?username=Neburalis&show_icons=true&theme=default#gh-light-mode-only)](https://github.com/Neburalis#gh-light-mode-only)
-[![Top Langs-Dark](https://github-readme-stats.vercel.app/api/top-langs/?username=Neburalis&layout=compact&exclude_repo=pumpkin&langs_count=8&theme=dark#gh-dark-mode-only)](https://github.com/Neburalis#gh-dark-mode-only)
-[![Top Langs-Light](https://github-readme-stats.vercel.app/api/top-langs/?username=Neburalis&layout=compact&exclude_repo=pumpkin&langs_count=8&theme=default#gh-light-mode-only)](https://github.com/Neburalis#gh-light-mode-only)
+[![GitHub stats](https://github-readme-stats.vercel.app/api?username=Neburalis&show_icons=true&bg_color=30,845ec2,00c9a7&title_color=fff&text_color=fff)](https://github.com/Neburalis)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Neburalis&layout=compact&exclude_repo=pumpkin&hide=Jupyter%20Notebook&langs_count=8&bg_color=30,845ec2,00c9a7&title_color=fff&text_color=fff)](https://github.com/Neburalis)
 
-[![WakaTime stats-Dark](https://github-readme-stats.vercel.app/api/wakatime?username=Neburalis\&layout=compact&theme=dark#gh-dark-mode-only)](https://github.com/Neburalis#gh-dark-mode-only)
-[![WakaTime stats-Light](https://github-readme-stats.vercel.app/api/wakatime?username=Neburalis\&layout=compact&theme=default#gh-light-mode-only)](https://github.com/Neburalis#gh-light-mode-only)
+[![WakaTime stats-Dark](https://github-readme-stats.vercel.app/api/wakatime?username=Neburalis\&layout=compact&bg_color=30,845ec2,00c9a7&title_color=fff&text_color=fff)](https://github.com/Neburalis)
 
 
 <!--sdf
