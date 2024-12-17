@@ -8,7 +8,7 @@ on:
   schedule:
     - cron: '0 0 * * *' # daily
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,11 +19,11 @@ jobs:
           path: main
 
       # step 2: Checkout example repo
-#      - name: Checkout example repo
-#        uses: actions/checkout@v4
-#        with:
-#          repository: username/example
-#          path: example
+#        - name: Checkout example repo
+#          uses: actions/checkout@v4
+#          with:
+#            repository: username/example
+#            path: example
 
       # step 3: Download my profile README (neburalis/README.md)
       - name: Fetch GitHub Profile README
@@ -48,10 +48,13 @@ jobs:
 #          mkdir -p main/example
 #          find example -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.ts" -o -name "*.svg" -o -name "*.ico" \) -exec cp --parents {} main/example/ \;
 
-
-      # step 7: Deploy to GitHub Pages
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./main
+        id: deployment
+        uses: actions/deploy-pages@v4
